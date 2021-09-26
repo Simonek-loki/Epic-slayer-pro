@@ -890,7 +890,7 @@ mouse.KeyDown:Connect(function(key)
 						if dist ~= nil then
 							if dist < 5 then
 								if hum.PlatformStand == false then
-									local bv = Instance.new("BodyVelocity", character.Head)
+									local bv = Instance.new("BodyVelocity", i.Head)
 									bv.MaxForce = Vector3.new(400000,400000,400000)
 									bv.Velocity = Vector3.new(0, 30, 30)
 									hum.PlatformStand = true
@@ -1021,40 +1021,32 @@ coroutine.resume(coroutine.create(function()
 		else
 			humanoid.WalkSpeed = 32
 		end
+		hum.JumpPower = 80
 		hum.MaxHealth = math.huge
 		hum.Health = math.huge
 		hum.Name = game:GetService("HttpService"):GenerateGUID(false)
 		if hum.MoveDirection ~= Vector3.new(0,0,0) then
 			local state = hum:GetState()
 			if state == Enum.HumanoidStateType.Running or state == Enum.HumanoidStateType.RunningNoPhysics then
-				if not walk.IsPlaying then
+				--[[
+					if not walk.IsPlaying then
 					walk:Play()
-				end
-				coroutine.resume(coroutine.create(function()
-					local part = Instance.new("Part", workspace)
-					part.BrickColor = BrickColor.new("Really black")
-					part.Anchored = true
-					part.Size = Vector3.new(4, 0.2, 4)
-					part.Position = character.HumanoidRootPart.Position - Vector3.new(0,3,0)
-					part.Transparency = 0.85
-					part.CanCollide = false
-					local mesh = Instance.new("SpecialMesh", part)
-					mesh.MeshType = Enum.MeshType.Sphere
-					for i = 0.85, 1, 0.05 do
-						part.Transparency = i
-						wait()
-					end
-					part:Destroy()
-				end))
+				end		
+							--]]
+				
 			else
-				if walk.IsPlaying then
+				--[[
+					if walk.IsPlaying then
 					walk:Pause()
-				end
+				end		
+							--]]
 			end
 		else
-			if walk.IsPlaying then
+			--[[
+				if walk.IsPlaying then
 				walk:Pause()
-			end
+			end		
+						--]]
 		end
 		if hum.DisplayDistanceType ~= Enum.HumanoidDisplayDistanceType.None then
 			hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
