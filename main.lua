@@ -190,6 +190,7 @@ end
 local sprint = false
 local fly = false
 local extremepunch = false
+local yeet = false
 
 local ts = game:GetService("TweenService")
 
@@ -263,6 +264,7 @@ TextLabel7 = Instance.new("TextLabel")
 TextLabel8 = Instance.new("TextLabel")
 TextLabel9 = Instance.new("TextLabel")
 TextLabel10 = Instance.new("TextLabel")
+TextLabel11 = Instance.new("TextLabel")
 ScreenGui0.Name = "Fard gui lol"
 ScreenGui0.Parent = owner.PlayerGui
 ScreenGui0.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -390,6 +392,21 @@ TextLabel10.TextSize = 14
 TextLabel10.TextStrokeTransparency = 0
 TextLabel10.TextWrap = true
 TextLabel10.TextWrapped = true
+TextLabel11.Parent = ScrollingFrame3
+TextLabel11.Size = UDim2.new(0, 200, 0, 50)
+TextLabel11.BackgroundColor = BrickColor.new("Institutional white")
+TextLabel11.BackgroundColor3 = Color3.new(1, 1, 1)
+TextLabel11.BackgroundTransparency = 1
+TextLabel11.Font = Enum.Font.SourceSans
+TextLabel11.FontSize = Enum.FontSize.Size14
+TextLabel11.Text = "c = yeet someone"
+TextLabel11.TextColor = BrickColor.new("Institutional white")
+TextLabel11.TextColor3 = Color3.new(1, 1, 1)
+TextLabel11.TextScaled = true
+TextLabel11.TextSize = 14
+TextLabel11.TextStrokeTransparency = 0
+TextLabel11.TextWrap = true
+TextLabel11.TextWrapped = true
 
 Fard = Instance.new("ParticleEmitter")
 Fard.Parent = character.Torso
@@ -534,18 +551,18 @@ function spawnZombie(position)
 	lefthip.Part1 = ll
 	lefthip.C0 = CFrame.new(-1, -1, 0, -4.37113883e-08, 0, -1, 0, 0.99999994, 0, 1, 0, -4.37113883e-08)
 	lefthip.C1 = CFrame.new(-0.5, 1, 0, -4.37113883e-08, 0, -1, 0, 0.99999994, 0, 1, 0, -4.37113883e-08 )
-	
+
 	torso.BrickColor = BrickColor.new("Burnt Sienna")
 	ll.BrickColor = BrickColor.new("Burnt Sienna")
 	rl.BrickColor = BrickColor.new("Burnt Sienna")
 	h.BrickColor = BrickColor.new("Artichoke")
 	la.BrickColor = BrickColor.new("Artichoke")
 	ra.BrickColor = BrickColor.new("Artichoke")
-	
+
 	nh.MaxHealth = 110
 	nh.Health = 110
-	
-	
+
+
 end
 
 function partShoot(startPos, endPos)
@@ -644,7 +661,7 @@ mouse.Button1Down:Connect(function()
 				LAWeld.C0 = LAWeld.C0:Lerp(LAC0 * CFrame.new(-0.061, 0, 0.238) * CFrame.Angles(0, math.rad(-62.51), math.rad(-90.012)), i)
 				task.wait()
 			end
-			
+
 			EpicPunch:Emit(10)
 			for _,i in ipairs(workspace:GetDescendants()) do
 				if i:IsA("Model") then
@@ -695,7 +712,7 @@ mouse.Button1Down:Connect(function()
 				LAWeld.C0 = LAWeld.C0:Lerp(LAC0 * CFrame.new(-0.061, 0, 0.238) * CFrame.Angles(0, math.rad(-62.51), math.rad(-90.012)), i)
 				task.wait()
 			end
-			
+
 			EpicPunch:Emit(10)
 			for _,i in ipairs(workspace:GetDescendants()) do
 				if i:IsA("Model") then
@@ -777,7 +794,7 @@ mouse.KeyDown:Connect(function(key)
 				LAWeld.C0 = LAWeld.C0:Lerp(LAC0 * CFrame.new(-0.061, 0, 0.238) * CFrame.Angles(0, math.rad(-62.51), math.rad(-90.012)), i)
 				task.wait()
 			end
-			
+
 			EpicPunch:Emit(10)
 			for _,i in pairs(workspace:GetChildren()) do
 				if i ~= character then
@@ -834,6 +851,70 @@ mouse.KeyDown:Connect(function(key)
 			debounce = false
 			task.wait(5)
 			extremepunch = false
+		end
+	end
+end)
+
+mouse.KeyDown:Connect(function(key)
+	if key == "c" then
+		if debounce == false and extremepunch == false then
+			debounce = true
+			yeet = true
+			for i = 0,1,0.1 do
+				RAWeld.C0 = RAWeld.C0:Lerp(RAC0 * CFrame.Angles(0, math.rad(-0.057), 0), i)
+				LAWeld.C0 = LAWeld.C0:Lerp(LAC0 * CFrame.new(0, 0, 0.001) * CFrame.Angles(0, math.rad(0.057),0), i)
+				task.wait()
+			end
+			for i = 0,1,0.1 do
+				RAWeld.C0 = RAWeld.C0:Lerp(RAC0 * CFrame.Angles(0, math.rad(4.985), 0), i)
+				LAWeld.C0 = LAWeld.C0:Lerp(LAC0 * CFrame.new(0.707, 0, -0.707) * CFrame.Angles(0, math.rad(44.977), math.rad(-90.012)), i)
+				task.wait()
+			end
+			for i = 0,1,0.1 do
+				RAWeld.C0 = RAWeld.C0:Lerp(RAC0 * CFrame.Angles(0, math.rad(-5.042), 0), i)
+				LAWeld.C0 = LAWeld.C0:Lerp(LAC0 * CFrame.new(-0.061, 0, 0.238) * CFrame.Angles(0, math.rad(-62.51), math.rad(-90.012)), i)
+				task.wait()
+			end
+
+			EpicPunch:Emit(10)
+			for _,i in pairs(workspace:GetChildren()) do
+				if i ~= character then
+					local hum = i:FindFirstChildWhichIsA("Humanoid")
+					if hum then
+						local dist = nil
+						if i:FindFirstChild("HumanoidRootPart") then
+							dist = (character.HumanoidRootPart.Position - i.HumanoidRootPart.Position).Magnitude
+						elseif i:FindFirstChild("Torso") then
+							dist = (character.HumanoidRootPart.Position - i.Torso.Position).Magnitude
+						end
+						if dist ~= nil then
+							if dist < 5 then
+								if hum.PlatformStand == false then
+									local bv = Instance.new("BodyVelocity", character.Head)
+									bv.MaxForce = Vector3.new(400000,400000,400000)
+									bv.Velocity = Vector3.new(0, 30, 30)
+									hum.PlatformStand = true
+									wait(0.01)
+									bv:Destroy()
+								end
+							end
+						end
+					end
+				end
+			end
+			for i = 0,1,0.1 do
+				RAWeld.C0 = RAWeld.C0:Lerp(RAC0 * CFrame.Angles(0, math.rad(-0.057), 0), i)
+				LAWeld.C0 = LAWeld.C0:Lerp(LAC0 * CFrame.new(0, 0, 0.001) * CFrame.Angles(0, math.rad(0.057), 0), i)
+				task.wait()
+			end
+			for i = 0,1,0.1 do
+				RAWeld.C0 = RAWeld.C0:Lerp(RAC0, i)
+				LAWeld.C0 = LAWeld.C0:Lerp(LAC0, i)
+				task.wait()
+			end
+			debounce = false
+			task.wait(5)
+			yeet = false
 		end
 	end
 end)
